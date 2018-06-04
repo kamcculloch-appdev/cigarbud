@@ -23,7 +23,7 @@
         <td><%= cigar.origin %></td>
         <td><%= cigar.profile %></td>
         <td><%= cigar.price %></td>
-        <td><%= cigar.image %></td>
+        <td><img src='<%= cigar.image %>' class='img-responsive'></td>
         <td>
           <a href="/cigars/<%= cigar.id %>" class="btn btn-primary">Show</a>
           <a href="/cigars/<%= cigar.id %>/edit" class="btn btn-warning">Edit</a>

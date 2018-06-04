@@ -25,7 +25,7 @@
         <td><%= alcohol.origin %></td>
         <td><%= alcohol.taste %></td>
         <td><%= alcohol.price %></td>
-        <td><%= alcohol.image %></td>
+        <td><img src='<%= alcohol.image %>' class='img-responsive'></td>
         <td>
           <a href="/alcohols/<%= alcohol.id %>" class="btn btn-primary">Show</a>
           <a href="/alcohols/<%= alcohol.id %>/edit" class="btn btn-warning">Edit</a>
