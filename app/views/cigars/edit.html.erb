@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @cigar.errors.any? %>
+  <% @cigar.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Cigar #<%= @cigar.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_cigar/<%= @cigar.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @cigar.name %>">
+      </div>
+
+      <!-- Label and input for origin -->
+      <div class="form-group">
+        <label for="origin" class="control-label">
+          Origin
+        </label>
+
+        <input type="text" id="origin" name="origin" placeholder="Origin" class="form-control" value="<%= @cigar.origin %>">
+      </div>
+
+      <!-- Label and input for profile -->
+      <div class="form-group">
+        <label for="profile" class="control-label">
+          Profile
+        </label>
+
+        <input type="text" id="profile" name="profile" placeholder="Profile" class="form-control" value="<%= @cigar.profile %>">
+      </div>
+
+      <!-- Label and input for price -->
+      <div class="form-group">
+        <label for="price" class="control-label">
+          Price
+        </label>
+
+        <input type="text" id="price" name="price" placeholder="Price" class="form-control" value="<%= @cigar.price %>">
+      </div>
+
+      <!-- Label and input for image -->
+      <div class="form-group">
+        <label for="image" class="control-label">
+          Image
+        </label>
+
+        <input type="text" id="image" name="image" placeholder="Image" class="form-control" value="<%= @cigar.image %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Cigar
+      </button>
+      or
+      <a href="/cigars/<%= @cigar.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
