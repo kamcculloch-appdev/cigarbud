@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @pairing.errors.any? %>
+  <% @pairing.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Pairing</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_pairing" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for cigar_id -->
+      <div class="form-group">
+        <label for="cigar_id" class="control-label">
+          Cigar
+        </label>
+
+        <input type="text" id="cigar_id" name="cigar_id" placeholder="Cigar" class="form-control" value="<%= @pairing.cigar_id %>">
+      </div>
+
+      <!-- Label and input for alcohol_id -->
+      <div class="form-group">
+        <label for="alcohol_id" class="control-label">
+          Alcohol
+        </label>
+
+        <input type="text" id="alcohol_id" name="alcohol_id" placeholder="Alcohol" class="form-control" value="<%= @pairing.alcohol_id %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @pairing.user_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Pairing
+      </button>
+      or
+      <a href="/pairings">Cancel</a>
+    </form>
+  </div>
+</div>
