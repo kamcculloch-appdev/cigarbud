@@ -6,6 +6,10 @@ class Alcohol < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :users,
+             :through => :pairings,
+             :source => :user
+
   has_many   :cigars,
              :through => :pairings,
              :source => :cigar
