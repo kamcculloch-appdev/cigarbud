@@ -6,6 +6,7 @@ class AlcoholsController < ApplicationController
   end
 
   def show
+    @pairing = Pairing.new
     @alcohol = Alcohol.find(params[:id])
 
     render("alcohols/show.html.erb")
