@@ -18,7 +18,7 @@
       <% @pairings.each do |pairing| %>
       <tr>
         <td><%= pairing.cigar.name %></td>
-        <td><%= pairing.alcohol_id %></td>
+        <td><%= pairing.alcohol.name %></td>
         <td><%= pairing.user_id %></td>
         <td>
           <a href="/pairings/<%= pairing.id %>" class="btn btn-primary">Show</a>
