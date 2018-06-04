@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :cigars,
+             :through => :pairings,
+             :source => :cigar
+
   # Validations
 
   # Include default devise modules. Others available are:
