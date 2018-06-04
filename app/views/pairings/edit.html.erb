@@ -33,7 +33,7 @@
           Alcohol
         </label>
 
-        <input type="text" id="alcohol_id" name="alcohol_id" placeholder="Alcohol" class="form-control" value="<%= @pairing.alcohol_id %>">
+        <%= select_tag(:alcohol_id, options_from_collection_for_select(Alcohol.all, :id, :name, @pairing.alcohol_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for user_id -->
