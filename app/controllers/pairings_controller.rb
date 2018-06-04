@@ -1,4 +1,14 @@
 class PairingsController < ApplicationController
+  before_action :current_user_must_be_pairing_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_pairing_user
+    pairing = Pairing.find(params[:id])
+
+    unless current_user == pairing.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @pairings = Pairing.all
 

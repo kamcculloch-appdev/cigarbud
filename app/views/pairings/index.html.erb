@@ -22,8 +22,11 @@
         <td><%= pairing.user.email %></td>
         <td>
           <a href="/pairings/<%= pairing.id %>" class="btn btn-primary">Show</a>
-          <a href="/pairings/<%= pairing.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_pairing/<%= pairing.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == pairing.user %>
+            <a href="/pairings/<%= pairing.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_pairing/<%= pairing.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
