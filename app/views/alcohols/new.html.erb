@@ -1,0 +1,82 @@
+<!-- Validation failure messages -->
+<% if @alcohol.errors.any? %>
+  <% @alcohol.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Alcohol</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_alcohol" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @alcohol.name %>">
+      </div>
+
+      <!-- Label and input for category -->
+      <div class="form-group">
+        <label for="category" class="control-label">
+          Category
+        </label>
+
+        <input type="text" id="category" name="category" placeholder="Category" class="form-control" value="<%= @alcohol.category %>">
+      </div>
+
+      <!-- Label and input for origin -->
+      <div class="form-group">
+        <label for="origin" class="control-label">
+          Origin
+        </label>
+
+        <input type="text" id="origin" name="origin" placeholder="Origin" class="form-control" value="<%= @alcohol.origin %>">
+      </div>
+
+      <!-- Label and input for taste -->
+      <div class="form-group">
+        <label for="taste" class="control-label">
+          Taste
+        </label>
+
+        <input type="text" id="taste" name="taste" placeholder="Taste" class="form-control" value="<%= @alcohol.taste %>">
+      </div>
+
+      <!-- Label and input for price -->
+      <div class="form-group">
+        <label for="price" class="control-label">
+          Price
+        </label>
+
+        <input type="text" id="price" name="price" placeholder="Price" class="form-control" value="<%= @alcohol.price %>">
+      </div>
+
+      <!-- Label and input for image -->
+      <div class="form-group">
+        <label for="image" class="control-label">
+          Image
+        </label>
+
+        <input type="text" id="image" name="image" placeholder="Image" class="form-control" value="<%= @alcohol.image %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Alcohol
+      </button>
+      or
+      <a href="/alcohols">Cancel</a>
+    </form>
+  </div>
+</div>
