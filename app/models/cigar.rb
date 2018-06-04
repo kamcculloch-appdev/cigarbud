@@ -6,6 +6,10 @@ class Cigar < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :alcohols,
+             :through => :pairings,
+             :source => :alcohol
+
   # Validations
 
 end
